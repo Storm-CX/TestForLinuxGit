@@ -40,7 +40,7 @@
                 <version>1.0.0</version>
                 <configuration>
                     <!-- imageName 仓库名称/镜像名称:标签名称-->
-                    <imageName>${project.build.finalName}:1.0.0</imageName>
+                    <imageName>${project.build.finalName}:1.0</imageName>
                     <dockerDirectory>${project.basedir}</dockerDirectory>
                     <skipDockerBuild>false</skipDockerBuild>
                     <resources>
