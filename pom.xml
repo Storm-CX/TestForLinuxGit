@@ -23,6 +23,7 @@
 
 
     <build>
+        <finalName>miss-xx</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -33,6 +34,27 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <!-- imageName 仓库名称/镜像名称:标签名称-->
+                    <imageName>${project.build.finalName}:1.0.0</imageName>
+                    <dockerDirectory>${project.basedir}</dockerDirectory>
+                    <skipDockerBuild>false</skipDockerBuild>
+                    <resources>
+                        <resource>
+                            <!-- 指定需要复制的根目录，-->
+                            <directory>${project.build.directory}</directory>
+                            <!-- 用于指定需要复制的文件。 表示打包后的jar 文件 -->
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+
+
         </plugins>
     </build>
 
